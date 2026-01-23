@@ -1,19 +1,21 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useState, useEffect } from "react";
-import { Database, Users, Video, MessageSquare, Terminal } from "lucide-react";
+import { Database, Users, Video, MessageSquare, Terminal, Book } from "lucide-react";
 import { initRoom } from "./lib/websim-socket.js";
 import RealtimeDatabase from "./views/RealtimeDatabase.jsx";
 import Presence from "./views/Presence.jsx";
 import GenerativeStudio from "./views/GenerativeStudio.jsx";
 import CommentsSystem from "./views/CommentsSystem.jsx";
+import Documentation from "./views/Documentation.jsx";
 const TABS = [
+  { id: "docs", label: "Docs", icon: Book, component: Documentation },
+  { id: "gen", label: "AI Studio", icon: Video, component: GenerativeStudio },
   { id: "db", label: "Database", icon: Database, component: RealtimeDatabase },
   { id: "presence", label: "Presence", icon: Users, component: Presence },
-  { id: "gen", label: "AI Studio", icon: Video, component: GenerativeStudio },
   { id: "comments", label: "Comments", icon: MessageSquare, component: CommentsSystem }
 ];
 function App() {
-  const [activeTab, setActiveTab] = useState("gen");
+  const [activeTab, setActiveTab] = useState("docs");
   const [ready, setReady] = useState(false);
   useEffect(() => {
     initRoom().then(() => setReady(true));
@@ -21,11 +23,11 @@ function App() {
   if (!ready) {
     return /* @__PURE__ */ jsxDEV("div", { className: "h-full flex items-center justify-center bg-slate-950 text-blue-400 font-mono", children: /* @__PURE__ */ jsxDEV("span", { className: "animate-pulse", children: "Connecting to Websim Runtime Environment..." }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 28,
+      lineNumber: 30,
       columnNumber: 9
     }, this) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 27,
+      lineNumber: 29,
       columnNumber: 7
     }, this);
   }
@@ -35,28 +37,28 @@ function App() {
       /* @__PURE__ */ jsxDEV("div", { className: "p-4 lg:p-6 border-b border-slate-800", children: /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-3 text-blue-400", children: [
         /* @__PURE__ */ jsxDEV(Terminal, { size: 24 }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 41,
+          lineNumber: 43,
           columnNumber: 13
         }, this),
         /* @__PURE__ */ jsxDEV("span", { className: "font-bold text-lg hidden lg:block tracking-tight", children: [
           "Websim",
           /* @__PURE__ */ jsxDEV("span", { className: "text-white", children: "Dev" }, void 0, false, {
             fileName: "<stdin>",
-            lineNumber: 42,
+            lineNumber: 44,
             columnNumber: 86
           }, this)
         ] }, void 0, true, {
           fileName: "<stdin>",
-          lineNumber: 42,
+          lineNumber: 44,
           columnNumber: 13
         }, this)
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 40,
+        lineNumber: 42,
         columnNumber: 11
       }, this) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 39,
+        lineNumber: 41,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV("div", { className: "flex-1 py-4 flex flex-col gap-2 px-2", children: TABS.map((tab) => /* @__PURE__ */ jsxDEV(
@@ -67,12 +69,12 @@ function App() {
           children: [
             /* @__PURE__ */ jsxDEV(tab.icon, { size: 20 }, void 0, false, {
               fileName: "<stdin>",
-              lineNumber: 57,
+              lineNumber: 59,
               columnNumber: 15
             }, this),
             /* @__PURE__ */ jsxDEV("span", { className: "hidden lg:block font-medium", children: tab.label }, void 0, false, {
               fileName: "<stdin>",
-              lineNumber: 58,
+              lineNumber: 60,
               columnNumber: 15
             }, this)
           ]
@@ -81,55 +83,55 @@ function App() {
         true,
         {
           fileName: "<stdin>",
-          lineNumber: 48,
+          lineNumber: 50,
           columnNumber: 13
         },
         this
       )) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 46,
+        lineNumber: 48,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV("div", { className: "p-4 border-t border-slate-800", children: /* @__PURE__ */ jsxDEV("div", { className: "text-[10px] text-slate-500 text-center lg:text-left", children: [
         /* @__PURE__ */ jsxDEV("span", { className: "hidden lg:inline", children: "Running on " }, void 0, false, {
           fileName: "<stdin>",
-          lineNumber: 65,
+          lineNumber: 67,
           columnNumber: 13
         }, this),
         "Websim OS v1.0"
       ] }, void 0, true, {
         fileName: "<stdin>",
-        lineNumber: 64,
+        lineNumber: 66,
         columnNumber: 11
       }, this) }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 63,
+        lineNumber: 65,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 38,
+      lineNumber: 40,
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV("main", { className: "flex-1 bg-slate-950 relative overflow-hidden", children: [
       /* @__PURE__ */ jsxDEV("div", { className: "absolute inset-0 bg-gradient-to-br from-blue-900/10 to-purple-900/10 pointer-events-none" }, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 72,
+        lineNumber: 74,
         columnNumber: 9
       }, this),
       /* @__PURE__ */ jsxDEV(ActiveComponent, {}, void 0, false, {
         fileName: "<stdin>",
-        lineNumber: 73,
+        lineNumber: 75,
         columnNumber: 9
       }, this)
     ] }, void 0, true, {
       fileName: "<stdin>",
-      lineNumber: 71,
+      lineNumber: 73,
       columnNumber: 7
     }, this)
   ] }, void 0, true, {
     fileName: "<stdin>",
-    lineNumber: 36,
+    lineNumber: 38,
     columnNumber: 5
   }, this);
 }
